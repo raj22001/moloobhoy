@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" align='center'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example 2</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://db.onlinewebfonts.com/c/3284c3a32cf946466fb963369b3c5b2d?family=Disket+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<style>
+    #background-video {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        opacity: 10;
+    }
+</style>
+
+<body
+>
+    <div id="TopLogo" onclick="secondPage()">
+        <img src="Moloobhoy Logo.pdf.png" />
+      </div>
+    <video onclick="secondPage()" id="background-video" autoplay loop muted>
+        <source src="bgvideo2.mp4" type="video/mp4">
+        <!-- Add other video formats if needed -->
+        Your browser does not support the video tag.
+    </video>
+    <div  onclick="secondPage()">
+        <canvas id="canvas"></canvas>
+        <br/>
+        <h3 class="numberYears" style="bottom: 380px;">
+            <span class="px-0.5 font-bold font-disket">Over a</span>
+            <span class="px-1 font-bold font-disket " style="color: #94e6fb;">  100 </span>
+            <span class="px-1 font-bold font-disket"> Years and</span>
+            <span class="px-1 font-bold font-disket " style="color: #94e6fb;">  Still Growing </span>
+        </h3>
+        <br/>
+        <!-- <div id="StartBtn" style="margin-top:-380px;display: flex;justify-content: center;">
+            <h1 class="font-normal font-disket text-2xl uppercase animate__animated animate__fadeInUp">Enter Site</h1>
+            <a href="2ndpage.html"><img src="entersite.png" class="w-full h-full object-contain" alt="" style="margin-top: -20px;width: 100px;"></span>
+        </div> -->
+    </div>
+
+
+    <audio  id="bgMusic" loop autoplay>
+          <source src="secondaudio.mp3" type="audio/mp3" />
+        </audio>
+        
+        
+
+          <button id="toggleButton" class="sound-text"><i class="fa fa-volume-up" style="color: white;"></i> <!-- Default play icon -->
+            <span>Mute</span></button>
+            <div style="position: fixed; ">
+
+              <p style="margin-top: -4%; text-align: end; color: white; margin-right: 1%;  ">PlEASE CLICK ANYWHERE TO SKIP THIS INTRO</p>
+            </div>
+     
+          <script>
+
+             function secondPage() {
+                window.location.href = "2ndpage.html";
+              }
+
+            const audio = document.getElementById("bgMusic");
+            const toggleButton = document.getElementById("toggleButton");
+          
+            toggleButton.addEventListener("click", function() {
+              if (audio.paused) {
+                audio.play();
+                toggleButton.innerHTML = '<i class="fa fa-volume-up"></i> <span>Mute</span>'; // Change to pause icon and text
+              } else {
+                audio.pause();
+                toggleButton.innerHTML = '<i class="fas fa-volume-mute"></i> <span>Unmute</span>'; // Change to play icon and text
+              }
+            });
+
+            // setTimeout(secondPage, 25000);
+        </script>
+
+
+          
+
+    
+     
+      
+    <script src="script.js"></script>
+</body>
+</html>

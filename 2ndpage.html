@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" align="center" class="SecondpageBody">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+      href="https://db.onlinewebfonts.com/c/3284c3a32cf946466fb963369b3c5b2d?family=Disket+Mono"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="style2.css" />
+    <style>
+      #background-video {
+          position: fixed;
+          right: 0;
+          bottom: 0;
+          min-width: 100%;
+          min-height: 100%;
+          z-index: -1;
+          opacity: 10;
+      }
+  </style>
+  </head>
+  <body class="SecondpageBody">
+    <div id="TopLogo">
+      <img src="Moloobhoy Logo.pdf.png" />
+    </div>
+    <video id="background-video" autoplay loop muted>
+      <source src="bgvideo2.mp4" type="video/mp4">
+      <!-- Add other video formats if needed -->
+      Your browser does not support the video tag.
+  </video>
+
+    <div class="stars">
+      <canvas id="starField"></canvas>
+    </div>
+
+    <!-- <section id="zoom">
+      <div class="FrontH1">Moloobhoy Group <span>Of Companies</span></div>
+    </section> -->
+
+    <section id="greetings">
+      <div id="MainLogo" class="logo-container">
+        <div class="image-container">
+          <img
+            id="logo"
+            style="display: none; position: relative"
+            class="next-particle Secondpagelogo"
+            data-init-position="random"
+            data-init-direction="bottom"
+            data-fade-position="bottom"
+            data-fade-direction="bottom"
+            data-color="#94e6fb"
+            data-renderer="";
+            data-particle-gap="1"
+            data-width="250"
+            data-height="400"
+            data-max-width="700"
+            data-max-height="500"
+            data-disable-interaction="false"
+            data-mouse-force="80"
+            data-gravity="0.06"
+            data-noise="20"
+            src="logo.png"
+          />
+        </div>
+      </div>
+    </section>
+    <div id="BTNarea">
+      <!-- Buttons will be appended here dynamically -->
+    </div>
+    <div id="TextArea"></div>
+
+<audio id="bgMusic" loop autoplay>
+  <source src="secondaudio.mp3" type="audio/mp3" />
+</audio>
+
+<button id="toggleButton" class="sound-text"><i class="fa fa-volume-up"></i> <!-- Default play icon -->
+  <span>Mute</span></button>
+
+  <script>
+    const audio = document.getElementById("bgMusic");
+    const toggleButton = document.getElementById("toggleButton");
+  
+    toggleButton.addEventListener("click", function() {
+      if (audio.paused) {
+        audio.play();
+        toggleButton.innerHTML = '<i class="fa fa-volume-up"></i> <span>Mute</span>'; // Change to pause icon and text
+      } else {
+        audio.pause();
+        toggleButton.innerHTML = '<i class="fas fa-volume-mute"></i> <span>Unmute</span>'; // Change to play icon and text
+      }
+    });
+</script>
+
+
+    <script src="https://nextparticle.nextco.de/nextparticle.min.js"></script>
+    <script src="script2.js"></script>
+  </body>
+</html>
