@@ -43,15 +43,15 @@ function Circle(x, y) {
     x: x,
     y: y,
   };
-  this.vx = (Math.random() - 0.5) * 20;
-  this.vy = (Math.random() - 0.5) * 20;
+  this.vx = (Math.random() - 0.5) * 22;
+  this.vy = (Math.random() - 0.5) * 40;
   this.accX = 0;
   this.accY = 0;
-  this.friction = Math.random() * 0.05 + 0.94;
+  this.friction = Math.random() * 0.01 + 0.88;
 }
 Circle.prototype.render = function () {
-  this.accX = (this.dest.x - this.x) / 1000;
-  this.accY = (this.dest.y - this.y) / 1000;
+  this.accX = (this.dest.x - this.x) / 200;
+  this.accY = (this.dest.y - this.y) / 200;
   this.vx += this.accX;
   this.vy += this.accY;
   this.vx *= this.friction;
@@ -71,8 +71,8 @@ Circle.prototype.render = function () {
 
   var distance = Math.sqrt(a * a + b * b);
   if (distance < radius * 70) {
-    this.accX = (this.x - mouse.x) / 100;
-    this.accY = (this.y - mouse.y) / 100;
+    this.accX = (this.x - mouse.x) / 20;
+    this.accY = (this.y - mouse.y) / 20;
     this.vx += this.accX;
     this.vy += this.accY;
   }

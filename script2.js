@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const c = canvas.getContext("2d");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  c.strokeStyle = "#074173";
+  c.strokeStyle = "#94e6fb";
   $("#TopLogo").hide();
 
   class Star {
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     stars.push(new Star());
   }
 
-  c.fillStyle = "rgba(196,228,255)";
+  c.fillStyle = "#00008B";
   c.translate(canvas.width / 2, canvas.height / 2);
 
   function draw() {
