@@ -190,7 +190,7 @@ function ShowOthers() {
 
   setTimeout(function () {
     $("#StartBtn").show().trigger("click"); // Automatically trigger click event on StartBtn
-  }, 10000);
+  }, 2000);
 }
 
 // Clear the canvas before initiating the countdown
