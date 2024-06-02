@@ -72,77 +72,142 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Timing for button creation after greetings animation
   setTimeout(function () {
+    // Function to add CSS rules dynamically
+    function addCSS(css) {
+      const style = document.createElement("style");
+      style.type = "text/css";
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+        style.appendChild(document.createTextNode(css));
+      }
+      document.head.appendChild(style);
+    }
+  
+    // CSS rules for different screen sizes
+    const css = `
+
+    @media (min-width: 1501px) and (max-width: 1635px) {
+      .custom-position-1 { left: 70%; top: 50%; }
+      .custom-position-2 { left: 47%; top: 2%; }
+      .custom-position-3 { left: 8%; top: 56%; }
+      .custom-position-4 { left: 33%; top: 90%; }
+      .custom-position-5 { left: 60%; top: 83%; }
+      .custom-position-6 { left: 6%; top: 21%; }
+      .custom-position-7 { left: 66%; top: 21%; }
+    }
+
+    @media (min-width: 1351px) and (max-width: 1500px) {
+      .custom-position-1 { left: 70%; top: 50%; }
+      .custom-position-2 { left: 47%; top: 2%; }
+      .custom-position-3 { left: 7%; top: 56%; }
+      .custom-position-4 { left: 33%; top: 90%; }
+      .custom-position-5 { left: 61%; top: 82%; }
+      .custom-position-6 { left: 5%; top: 21%; }
+      .custom-position-7 { left: 66%; top: 21%; }
+    }
+
+    @media (min-width: 1251px) and (max-width: 1350px) {
+      .custom-position-1 { left: 70%; top: 50%; }
+      .custom-position-2 { left: 47%; top: 2%; }
+      .custom-position-3 { left: 6%; top: 56%; }
+      .custom-position-4 { left: 33%; top: 90%; }
+      .custom-position-5 { left: 61%; top: 82%; }
+      .custom-position-6 { left: 5%; top: 21%; }
+      .custom-position-7 { left: 69%; top: 21%; }
+    }
+
+    @media (min-width: 1141px) and (max-width: 1250px) {
+      .custom-position-1 { left: 70%; top: 50%; }
+      .custom-position-2 { left: 47%; top: 3%; }
+      .custom-position-3 { left: 3%; top: 56%; }
+      .custom-position-4 { left: 28%; top: 90%; }
+      .custom-position-5 { left: 63%; top: 83%; }
+      .custom-position-6 { left: 1%; top: 21%; }
+      .custom-position-7 { left: 69%; top: 21%; }
+    }
+
+      @media (min-width: 960px) and (max-width: 1140px) {
+        .custom-position-1 { left: 70%; top: 50%; }
+        .custom-position-2 { left: 47%; top: 3%; }
+        .custom-position-3 { left: -2%; top: 56%; }
+        .custom-position-4 { left: 28%; top: 90%; }
+        .custom-position-5 { left: 63%; top: 83%; }
+        .custom-position-6 { left: -1%; top: 21%; }
+        .custom-position-7 { left: 69%; top: 21%; }
+      }
+  
+      @media (min-width: 770px) and (max-width: 953px) {
+        .custom-position-1 { left: 0%; top: 40%; }
+        .custom-position-2 { left: 46%; top: 0%; }
+        .custom-position-3 { left: 1%; top: 68%; }
+        .custom-position-4 { left: 32%; top: 91%; }
+        .custom-position-5 { left: 67%; top: 56%; }
+        .custom-position-6 { left: -1%; top: 20%; }
+        .custom-position-7 { left: 72%; top: 20%; }
+      }
+  
+      @media (min-width: 1636px) {
+        .custom-position-1 { left: 68%; top: 50%; }
+        .custom-position-2 { left: 45%; top: 0%; }
+        .custom-position-3 { left: 11%; top: 56%; }
+        .custom-position-4 { left: 33%; top: 91%; }
+        .custom-position-5 { left: 60%; top: 82%; }
+        .custom-position-6 { left: 10%; top: 21%; }
+        .custom-position-7 { left: 65%; top: 21%; }
+      }
+    `;
+  
+    // Add the CSS rules to the document
+    addCSS(css);
+  
     const btnArea = document.getElementById("BTNarea");
     const radius = Math.min(btnArea.offsetWidth, btnArea.offsetHeight) / 2; // This ensures the radius fits within BTNarea
     const textArea = document.getElementById("TextArea");
     let hideTimeout;
-
+  
     const buttonData = [
       {
         name: "A.S Moloobhoy & Sons Pvt Ltd",
-        text: "Hi, Im a Demo Text of A.S Moloobhoy & Sons Pvt Ltd",
+        text: "Hi, I'm a Demo Text of A.S Moloobhoy & Sons Pvt Ltd",
         url: "https://www.asmoloobhoy.com/",
       },
       {
         name: "A.S Moloobhoy Pvt Ltd",
-        text: "Hi, Im a Demo Text of A.S Moloobhoy Pvt Ltd</a>",
+        text: "Hi, I'm a Demo Text of A.S Moloobhoy Pvt Ltd",
       },
       {
         name: "Molobhoy Marine Services LLC",
-        text: "Hi, Im a Demo Text of Molobhoy Marine Services LLC",
+        text: "Hi, I'm a Demo Text of Molobhoy Marine Services LLC",
       },
       {
-        name: "A.S Moloobhoy FZCO ",
-        text: "Hi, Im a Demo Text of A.S Moloobhoy FZCO",
+        name: "A.S Moloobhoy FZCO",
+        text: "Hi, I'm a Demo Text of A.S Moloobhoy FZCO",
       },
       {
         name: "Moloobhoy Marine Equipment LLP",
-        text: "Hi, Im a Demo Text of Moloobhoy Marine Equipment LLP",
+        text: "Hi, I'm a Demo Text of Moloobhoy Marine Equipment LLP",
       },
       {
         name: "Moloobhoy Marine Services WLL:Qatar",
-        text: "Hi, Im a Demo Text of Moloobhoy Marine Services WLL:Qatar",
+        text: "Hi, I'm a Demo Text of Moloobhoy Marine Services WLL:Qatar",
       },
       {
         name: "Moloobhoy Marine Services LLC-Oman",
-        text: "Hi, Im a Demo Text of Moloobhoy Marine Services LLC-Oman",
+        text: "Hi, I'm a Demo Text of Moloobhoy Marine Services LLC-Oman",
       },
     ];
-
+  
     buttonData.forEach((button, index) => {
-      // Define custom left and top positions for each button
-      const customPositions = [
-        { left: 69, top: 50 },
-        { left: 46, top: -4 },
-        { left: 14, top: 55 },
-        { left: 32, top: 95 },
-        { left: 62, top: 82 },
-        { left: 12, top: 20 },
-        { left: 68, top: 20 },
-      ];
-
-      // Check if there are custom positions defined for the current button index
-      const customPosition = customPositions[index];
-      let buttonX, buttonY;
-      if (customPosition) {
-        buttonX = customPosition.left;
-        buttonY = customPosition.top;
-      } else {
-        // If no custom positions, calculate positions using radius
-        const angle = (index / buttonData.length) * 2 * Math.PI; // Calculate angle in radians
-        buttonX = radius * Math.cos(angle) + btnArea.offsetWidth / 2 - 50; // Center the button
-        buttonY = radius * Math.sin(angle) + btnArea.offsetHeight / 2 - 25; // Center the button
-      }
-
+      const customPositionClass = `custom-position-${index + 1}`;
+  
       const buttonElement = document.createElement("button");
       buttonElement.innerText = button.name;
+      buttonElement.className = `circular-button ${customPositionClass}`; // Add custom position class
       buttonElement.style.position = "absolute";
-      buttonElement.style.left = `${buttonX}%`;
-      buttonElement.style.top = `${buttonY}%`;
       buttonElement.style.height = "50px";
-      buttonElement.className = "circular-button"; // Add fadeInUp animation class
       buttonElement.style.visibility = "visible";
-
+  
       buttonElement.addEventListener("click", function () {
         window.location.href = button.url; // Navigate to the specified URL
       });
@@ -153,16 +218,16 @@ document.addEventListener("DOMContentLoaded", function () {
           .addClass("animated fadeInUp")
           .css("display", "block");
         $("#TextArea").html(""); // Clear previous text
-
+  
         // Add text
         const textElement = document.createElement("div");
         textElement.innerText = button.text;
         textElement.style.display = "block";
         $("#TextArea").append(textElement);
-
+  
         // Add line break to move the button to a new line
         $("#TextArea").append("<br>");
-
+  
         // Add the "Enter Site" button
         const enterSiteButton = document.createElement("button");
         enterSiteButton.innerText = "Enter Site";
@@ -177,41 +242,45 @@ document.addEventListener("DOMContentLoaded", function () {
           window.location.href = button.url; // Navigate to the specified URL
         });
         $("#TextArea").append(enterSiteButton);
-
+  
         $("#TextArea").fadeInUp(200);
       });
-
+  
       // Start a timeout to hide TextArea on mouse leave
       buttonElement.addEventListener("mouseleave", function () {
         hideTimeout = setTimeout(function () {
           $("#TextArea").removeClass("animated fadeInUp").fadeOut(200);
         }, 3000); // 3 seconds delay
       });
-
+  
       setTimeout(function () {
         btnArea.appendChild(buttonElement);
         $("#TopLogo").show();
       }, 1500);
-
+  
       // Prevent TextArea from hiding when hovered over
       textArea.addEventListener("mouseover", function (event) {
         clearTimeout(hideTimeout); // Clear any pending timeout
         $("#TextArea").css("display", "block"); // Override inline style to display the element
         event.stopPropagation(); // Stop the event from propagating to parent elements
       });
-
+  
       // Allow TextArea to hide if mouse leaves and is not over any buttons
       textArea.addEventListener("mouseleave", function () {
         hideTimeout = setTimeout(function () {
           $("#TextArea").hide();
         }, 3000); // 3 seconds delay
       });
+  
       const logo = document.querySelector(".next-particle.Secondpagelogo");
       if (logo && logo.nextParticle && logo.nextParticle.stop) {
         logo.nextParticle.start();
       }
     });
+  
+    console.log("Screen width:", window.innerWidth); // Log the current screen width for debugging
   }, 4200);
+  
 });
 
 window.onload = function () {

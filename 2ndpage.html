@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Canvas Animation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <link
       href="https://db.onlinewebfonts.com/c/3284c3a32cf946466fb963369b3c5b2d?family=Disket+Mono"
       rel="stylesheet"
@@ -22,47 +25,143 @@
     <link rel="stylesheet" href="style2.css" />
     <style>
       #background-video {
-          position: fixed;
-          right: 0;
-          bottom: 0;
-          min-width: 100%;
-          min-height: 100%;
-          z-index: -1;
-          opacity: 10;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        opacity: 1;
       }
-  </style>
+
+      @media (max-width: 768px) {
+        #BTNarea {
+          display: none;
+        }
+      }
+
+      @media (min-width: 770px) and (max-width: 953px) {
+        #BTNarea {
+          width: 100%;
+        }
+      }
+
+      @media (min-width: 960px) and (max-width: 1250px){
+        #BTNarea {
+          width: 98%;
+        }
+      }
+
+      @media (min-width: 1251px) and (max-width: 1350px){
+        #BTNarea {
+          width: 98%;
+        }
+      }
+
+      @media (min-width: 770px) and (max-width: 953px) {
+        .image-container {
+        margin-top: 119px;
+        margin-left: 43px;
+      }
+      }
+
+      @media (min-width: 960px) and (max-width: 1250px) {
+        .image-container {
+        margin-top: 110px;
+        margin-left: 43px;
+      }
+    }
+
+    @media (min-width: 1251px) and (max-width: 1350px) {
+        .image-container {
+        margin-top: 90px;
+      }
+    }
+
+    @media (min-width: 1351px) and (max-width: 1550px) {
+        .image-container {
+        margin-top: 80px;
+      }
+    }
+
+    @media (min-width: 1551px) and (max-width: 1650px){
+      .image-container {
+        margin-top: 75px;
+      }
+    }
+
+      @media (max-width: 768px) {
+        .image-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        #logo {
+          display: none;
+        }
+      }
+
+      .menu-container ul a {
+        color: white;
+      }
+
+      .menu-container ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: self-start;
+        height: 85vh;
+      }
+
+      .menu-container ul li p {
+        text-decoration: none;
+        color: #000;
+        font-size: 14px;
+      }
+
+      .hamburger-menu {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        cursor: pointer;
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .hamburger-menu {
+          display: block;
+        }
+      }
+    </style>
   </head>
   <body class="SecondpageBody">
     <div id="TopLogo">
       <img src="Moloobhoy Logo.pdf.png" />
     </div>
     <video id="background-video" autoplay loop muted>
-      <source src="bgvideo2.mp4" type="video/mp4">
-      <!-- Add other video formats if needed -->
+      <source src="bgvideo2.mp4" type="video/mp4" />
       Your browser does not support the video tag.
-  </video>
+    </video>
 
     <div class="stars">
       <canvas id="starField"></canvas>
     </div>
-
-    <!-- <section id="zoom">
-      <div class="FrontH1">Moloobhoy Group <span>Of Companies</span></div>
-    </section> -->
 
     <section id="greetings">
       <div id="MainLogo" class="logo-container">
         <div class="image-container">
           <img
             id="logo"
-            style="display: none; position: relative"
+            style="position: relative"
             class="next-particle Secondpagelogo"
             data-init-position="random"
             data-init-direction="bottom"
             data-fade-position="bottom"
             data-fade-direction="bottom"
             data-color="#94e6fb"
-            data-renderer="";
+            data-renderer=""
             data-particle-gap="1"
             data-width="250"
             data-height="400"
@@ -75,6 +174,35 @@
             src="logo.png"
           />
         </div>
+        <div id="menu" class="menu-container" style="display: none">
+          <ul>
+            <p style="font-size: 20px; padding-left: 50px; cursor: pointer">
+              <span></span>A.S Moloobhoy & Sons Pvt Ltd
+            </p>
+            <p style="font-size: 20px; cursor: pointer">
+              A.S Moloobhoy Pvt Ltd
+            </p>
+            <p style="font-size: 20px; padding-left: 50px; cursor: pointer">
+              Molobhoy Marine Services LLC
+            </p>
+            <p style="font-size: 20px; cursor: pointer">
+              Moloobhoy Marine Equipment LLP
+            </p>
+            <p style="font-size: 20px; padding-left: 50px; cursor: pointer">
+              A.S Moloobhoy FZCO
+            </p>
+            <p style="font-size: 20px; cursor: pointer">
+              Moloobhoy Marine Services WLL:Qatar
+            </p>
+            <p style="font-size: 20px; cursor: pointer">
+              Moloobhoy Marine Services LLC-Oman
+            </p>
+          </ul>
+        </div>
+      </div>
+      <div class="hamburger-menu" id="hamburgerMenu">
+        <span id="hamburgerIcon">&#9776;</span>
+        <!-- Unicode for hamburger menu icon -->
       </div>
     </section>
     <div id="BTNarea">
@@ -82,28 +210,56 @@
     </div>
     <div id="TextArea"></div>
 
-<audio id="bgMusic" loop autoplay>
-  <source src="secondaudio.mp3" type="audio/mp3" />
-</audio>
+    <audio id="bgMusic" loop autoplay>
+      <source src="secondaudio.mp3" type="audio/mp3" />
+    </audio>
 
-<button id="toggleButton" class="sound-text"><i class="fa fa-volume-up"></i> <!-- Default play icon -->
-  <span>Mute</span></button>
+    <button id="toggleButton" class="sound-text">
+      <i class="fa fa-volume-up"></i>
+      <span>Mute</span>
+    </button>
 
-  <script>
-    const audio = document.getElementById("bgMusic");
-    const toggleButton = document.getElementById("toggleButton");
-  
-    toggleButton.addEventListener("click", function() {
-      if (audio.paused) {
-        audio.play();
-        toggleButton.innerHTML = '<i class="fa fa-volume-up"></i> <span>Mute</span>'; // Change to pause icon and text
-      } else {
-        audio.pause();
-        toggleButton.innerHTML = '<i class="fas fa-volume-mute"></i> <span>Unmute</span>'; // Change to play icon and text
-      }
-    });
-</script>
+    <script>
+      const audio = document.getElementById("bgMusic");
+      const toggleButton = document.getElementById("toggleButton");
 
+      toggleButton.addEventListener("click", function () {
+        if (audio.paused) {
+          audio.play();
+          toggleButton.innerHTML =
+            '<i class="fa fa-volume-up"></i> <span>Mute</span>';
+        } else {
+          audio.pause();
+          toggleButton.innerHTML =
+            '<i class="fas fa-volume-mute"></i> <span>Unmute</span>';
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburgerMenu = document.getElementById("hamburgerMenu");
+        const hamburgerIcon = document.getElementById("hamburgerIcon");
+        const logo = document.getElementById("logo");
+        const menu = document.getElementById("menu");
+        const starField = document.getElementById("starField");
+        const imageContainer = document.querySelector(".image-container");
+
+        hamburgerMenu.addEventListener("click", function () {
+          if (menu.style.display === "none" || menu.style.display === "") {
+            menu.style.display = "block";
+            logo.style.display = "none";
+            starField.style.display = "none";
+            imageContainer.style.display = "none";
+            hamburgerIcon.innerHTML = "&times;"; // Unicode for close icon
+          } else {
+            menu.style.display = "none";
+            // logo.style.display = "block";
+            starField.style.display = "block";
+            imageContainer.style.display = "flex"; // Back to flex to center it again
+            hamburgerIcon.innerHTML = "&#9776;"; // Unicode for hamburger menu icon
+          }
+        });
+      });
+    </script>
 
     <script src="https://nextparticle.nextco.de/nextparticle.min.js"></script>
     <script src="script2.js"></script>
