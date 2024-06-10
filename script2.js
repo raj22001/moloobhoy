@@ -6,39 +6,39 @@ document.addEventListener("DOMContentLoaded", function () {
   c.strokeStyle = "#94e6fb";
   $("#TopLogo").hide();
 
-  class Star {
-    constructor() {
-      this.x = Math.random() * canvas.width - canvas.width / 2;
-      this.y = Math.random() * canvas.height - canvas.height / 2;
-      this.z = Math.random() * 4;
-    }
-    update() {
-      this.px = this.x;
-      this.py = this.y;
-      this.z += speed;
-      this.x += this.x * (speed * 0.2) * this.z;
-      this.y += this.y * (speed * 0.2) * this.z;
-      if (
-        this.x > canvas.width / 2 + 50 ||
-        this.x < -canvas.width / 2 - 50 ||
-        this.y > canvas.height / 2 + 50 ||
-        this.y < -canvas.height / 2 - 50
-      ) {
+    class Star {
+      constructor() {
         this.x = Math.random() * canvas.width - canvas.width / 2;
         this.y = Math.random() * canvas.height - canvas.height / 2;
+        this.z = Math.random() * 4;
+      }
+      update() {
         this.px = this.x;
         this.py = this.y;
-        this.z = 0;
+        this.z += speed;
+        this.x += this.x * (speed * 0.2) * this.z;
+        this.y += this.y * (speed * 0.2) * this.z;
+        if (
+          this.x > canvas.width / 2 + 50 ||
+          this.x < -canvas.width / 2 - 50 ||
+          this.y > canvas.height / 2 + 50 ||
+          this.y < -canvas.height / 2 - 50
+        ) {
+          this.x = Math.random() * canvas.width - canvas.width / 2;
+          this.y = Math.random() * canvas.height - canvas.height / 2;
+          this.px = this.x;
+          this.py = this.y;
+          this.z = 0;
+        }
+      }
+      show() {
+        c.lineWidth = this.z;
+        c.beginPath();
+        c.moveTo(this.x, this.y);
+        c.lineTo(this.px, this.py);
+        c.stroke();
       }
     }
-    show() {
-      c.lineWidth = this.z;
-      c.beginPath();
-      c.moveTo(this.x, this.y);
-      c.lineTo(this.px, this.py);
-      c.stroke();
-    }
-  }
 
   let speed = 0.1;
   let stars = [];
@@ -50,16 +50,16 @@ document.addEventListener("DOMContentLoaded", function () {
   c.translate(canvas.width / 2, canvas.height / 2);
 
   function draw() {
-    c.fillRect(
-      -canvas.width / 2,
-      -canvas.height / 2,
-      canvas.width,
-      canvas.height
-    );
-    stars.forEach((star) => {
-      star.update();
-      star.show();
-    });
+    // c.fillRect(
+    //   -canvas.width / 2,
+    //   -canvas.height / 2,
+    //   canvas.width,
+    //   canvas.height
+    // );
+    // stars.forEach((star) => {
+    //   star.update();
+    //   star.show();
+    // });
     requestAnimationFrame(draw);
   }
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Timing for the star field to fade out
   setTimeout(function () {
     document.getElementById("starField").style.opacity = 0; // Fade out stars
-  }, 1000); // Adjust as necessary to match the greetings animation
+  }, 10); // Adjust as necessary to match the greetings animation
 
   // Timing for button creation after greetings animation
   setTimeout(function () {
@@ -243,20 +243,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         $("#TextArea").append(enterSiteButton);
   
-        $("#TextArea").fadeInUp(200);
+        $("#TextArea").fadeInUp(10);
       });
   
       // Start a timeout to hide TextArea on mouse leave
       buttonElement.addEventListener("mouseleave", function () {
         hideTimeout = setTimeout(function () {
           $("#TextArea").removeClass("animated fadeInUp").fadeOut(200);
-        }, 3000); // 3 seconds delay
+        }, 0000); // 3 seconds delay
       });
   
       setTimeout(function () {
         btnArea.appendChild(buttonElement);
         $("#TopLogo").show();
-      }, 1500);
+      }, 0000);
   
       // Prevent TextArea from hiding when hovered over
       textArea.addEventListener("mouseover", function (event) {
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
       textArea.addEventListener("mouseleave", function () {
         hideTimeout = setTimeout(function () {
           $("#TextArea").hide();
-        }, 3000); // 3 seconds delay
+        }, 0000); // 3 seconds delay
       });
   
       const logo = document.querySelector(".next-particle.Secondpagelogo");
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
     console.log("Screen width:", window.innerWidth); // Log the current screen width for debugging
-  }, 4200);
+  }, 1000);
   
 });
 

@@ -159,7 +159,7 @@
   width: 100%;
   text-align: center;
   opacity: 0;
-  animation: zoomInOut 5s linear forwards;
+  animation: zoomInOut 1s linear forwards;
 }
 
 @keyframes zoomInOut {
@@ -183,14 +183,14 @@
   opacity: 0;
   /* width: 100%; */
   text-align: center;
-  animation: zoomIn 2s linear 4s forwards;
+  animation: zoomIn 1.5s linear 2.2s forwards;
   /* Adjust timing to sync with the end of #zoom */
 }
 
 @keyframes zoomIn {
   from {
     opacity: 0;
-    transform: scale(0.1);
+    transform: scale(2.1);
   }
 
   to {

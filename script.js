@@ -142,7 +142,7 @@ function initCountdown() {
       initScene(); // Prepare the scene for particles
       requestAnimationFrame(render);
       ShowOthers();
-    }, 3000); // Wait for 3 seconds after countdown completes
+    }, 1000); // Wait for 3 seconds after countdown completes
   }
 }
 
@@ -186,7 +186,7 @@ function ShowOthers() {
       },
       1000
     );
-  }, 8000);
+  }, 2000);
 
   setTimeout(function () {
     $("#StartBtn").show().trigger("click"); // Automatically trigger click event on StartBtn
